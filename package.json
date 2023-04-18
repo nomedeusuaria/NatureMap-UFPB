@@ -1,10 +1,21 @@
 {
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon server.js"
+  },
   "dependencies": {
     "cors": "^2.8.5",
     "dotenv": "^16.0.3",
-    "express": "^4.18.2"
+    "express": "^4.18.2",
+    "mongoose": "^6.4.7"
   },
   "devDependencies": {
     "nodemon": "^2.0.22"
-  }
+  },
+  "name": "naturemap-ufpb",
+  "description": "O projeto NatureMap UFPB é uma aplicação web que oferece aos estudantes do Campus IV a oportunidade de explorar e aprender sobre a diversidade de plantas presentes no Campus",
+  "version": "1.0.0",
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
 }
