@@ -19,11 +19,25 @@ const addEspecies = async (req, res) => {
     }
 };
 
-const retornarTodasPlantas = async(req, res) => {
+const retornarTodasEspecies = async(req, res) => {
     try {
         const todasPlantas = await NatureMapModels.find()
         res.status(200).json(todasPlantas)
     } catch(error){
+        res.status(500).json({message: error.message})
+    }
+};
+
+const retornarEspeciePorId = async (req, res) => {
+    try{
+        const retornarEspecie = await NatureMapModels.findById(req.params.id)
+
+        if(retornarEspecie == null){
+            return res.status(404).json({message: `Especie ${id} não foi encontrada.`})
+        }
+        res.status(200).json({retornarEspecie})
+    } catch(error){
+        console.error(error)
         res.status(500).json({message: error.message})
     }
 };
@@ -48,6 +62,7 @@ const excluirEspeciePorId = async (req, res) => {
 
 module.exports = {
     addEspecies,
-    retornarTodasPlantas,
+    retornarTodasEspecies,
+    retornarEspeciePorId,
     excluirEspeciePorId,
 }
